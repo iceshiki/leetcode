@@ -10,34 +10,25 @@ import java.util.Map;
  * @Author: chen.jc
  * @createDate: 2022/11/19
  */
-public class Subject146 {
-    private int cap;
-    private Map<Integer, Integer> map = new LinkedHashMap<>();  // 保持插入顺序
+public class Subject146 { int capacity;
+    LinkedHashMap<Integer, Integer> cache;
 
     public Subject146(int capacity) {
-        this.cap = capacity;
+        this.capacity = capacity;
+        cache = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return cache.size() > capacity;
+            }
+        };
     }
 
     public int get(int key) {
-        if (map.keySet().contains(key)) {
-            int value = map.get(key);
-            map.remove(key);
-            // 保证每次查询后，都在末尾
-            map.put(key, value);
-            return value;
-        }
-        return -1;
+        return cache.getOrDefault(key, -1);
     }
 
     public void put(int key, int value) {
-        if (map.keySet().contains(key)) {
-            map.remove(key);
-        } else if (map.size() == cap) {
-            Iterator<Map.Entry<Integer, Integer>> iterator = map.entrySet().iterator();
-            iterator.next();
-            iterator.remove();
-        }
-        map.put(key, value);
+        cache.put(key, value);
     }
 }
 
@@ -49,9 +40,6 @@ public class Subject146 {
  */
 class LRUCache {
     BiLinkListNode head;
-    /**
-     * 增加一个队尾指针提高性能
-     */
     BiLinkListNode tail;
     int size = 0;
     int capacity;
