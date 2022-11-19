@@ -26,7 +26,6 @@ import java.util.HashSet;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
  * @author chenjianchao
- * @description TODO
  * @createDate 2022/11/17 14:03
  */
 public class Subject3 {

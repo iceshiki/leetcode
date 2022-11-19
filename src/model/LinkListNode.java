@@ -2,7 +2,6 @@ package model;
 
 /**
  * @author chenjianchao
- * @description TODO
  * @createDate 2022/11/17 11:21
  */
 public class LinkListNode {
