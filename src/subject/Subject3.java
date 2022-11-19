@@ -1,7 +1,8 @@
 package subject;
 
-import java.awt.*;
-import java.util.HashSet;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
@@ -30,22 +31,44 @@ import java.util.HashSet;
  */
 public class Subject3 {
     public static int lengthOfLongestSubstring(String s) {
-        HashSet<Character> charSet = new HashSet<>();
-        char[] chars = s.toCharArray();
+        if (s.length() == 0) {
+            return 0;
+        }
+        Map<Character, Integer> charMap = new HashMap<>();
         int maxLen = 0;
         int left = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (charSet.contains(chars[i])) {
-                left = Math.max(left, i+1);
+            if (charMap.containsKey(s.charAt(i))) {
+                left = Math.max(charMap.get(s.charAt(i)) + 1, left);
             }
-            charSet.add(chars[i]);
+            charMap.put(s.charAt(i), i);
 
             maxLen = Math.max(maxLen, i - left + 1);
         }
         return maxLen;
     }
 
+    public static int method2(String s){
+
+        // 记录字符上一次出现的位置
+        int[] last = new int[128];
+        Arrays.fill(last, -1);
+        int n = s.length();
+
+        int res = 0;
+        int start = 0; // 窗口开始位置
+        for(int i = 0; i < n; i++) {
+            int index = s.charAt(i);
+            start = Math.max(start, last[index] + 1);
+            res   = Math.max(res, i - start + 1);
+            last[index] = i;
+        }
+
+        return res;
+    }
+
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring("dvdf"));
+        System.out.println(method2("dvdf"));
     }
 }
