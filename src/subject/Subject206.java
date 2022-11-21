@@ -1,7 +1,6 @@
 package subject;
 
-import model.LinkListNode;
-import tool.LinkListTools;
+import model.ListNode;
 
 /**
  * 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
@@ -25,9 +24,9 @@ import tool.LinkListTools;
  * @createDate 2022/11/17 11:20
  */
 public class Subject206 {
-    public static LinkListNode reverseList(LinkListNode head) {
-        LinkListNode prev = null;
-        LinkListNode next;
+    public static ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode next;
         while (null != head) {
             next = head.next;
             head.next = prev;
@@ -39,19 +38,19 @@ public class Subject206 {
 
 
     public static void main(String[] args) {
-        LinkListNode head = null;
+        ListNode head = null;
         for (int i = 5; i > 0; i--) {
-            LinkListNode node = new LinkListNode(i);
+            ListNode node = new ListNode(i);
             if (null != head) {
                 node.next = head;
             }
             head = node;
         }
 
-        LinkListTools.print(head);
+        head.print();
         head = reverseList(head);
         System.out.println();
-        LinkListTools.print(head);
+        head.print();
     }
 
 }
