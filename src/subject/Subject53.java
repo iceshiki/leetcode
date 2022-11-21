@@ -41,7 +41,7 @@ public class Subject53 {
             max = Math.max(max, nums[i]);
         }
         /*
-        思想二，前一个累加和小于0直接置0，即前面所有累加结果不参与计算
+        思想二，前一个累加和小于0直接置0，即前面所有累加结果不参与计算，无后效性
         for (int i = 1; i < nums.length; i++) {
             if (nums[i - 1] < 0) {
                 nums[i - 1] = 0;
