@@ -1,14 +1,12 @@
 package subject;
 
-import model.BiLinkListNode;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @Author: chen.jc
+ * @author: ice_shiki
  * @createDate: 2022/11/19
  */
 public class Subject146 { int capacity;
