@@ -56,7 +56,8 @@ public class Subject3 {
         int n = s.length();
 
         int res = 0;
-        int start = 0; // 窗口开始位置
+        // 窗口开始位置
+        int start = 0;
         for(int i = 0; i < n; i++) {
             int index = s.charAt(i);
             start = Math.max(start, last[index] + 1);

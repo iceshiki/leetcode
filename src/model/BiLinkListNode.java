@@ -1,7 +1,7 @@
 package model;
 
 /**
- * @Author: chen.jc
+ * @author: chen.jc
  * @createDate: 2022/11/20
  */
 public class BiLinkListNode {

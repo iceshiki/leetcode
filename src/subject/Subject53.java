@@ -22,8 +22,8 @@ package subject;
  * 1 <= nums.length <= 105
  * -104 <= nums[i] <= 104
  *
- * @author: ice_shiki
- * @createDate: 2022/11/21
+ * @author ice_shiki
+ * @createDate 2022/11/21
  */
 public class Subject53 {
     /**
