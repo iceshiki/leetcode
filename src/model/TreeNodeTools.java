@@ -19,11 +19,9 @@ public class TreeNodeTools {
 
         queue.add(root);
         int index = 1;
-        TreeNode left, right;
 
         while (!queue.isEmpty()) {
             TreeNode poll = queue.poll();
-            Integer num;
             if (numArray.length <= index) {
                 break;
             }
