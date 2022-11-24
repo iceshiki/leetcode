@@ -1,7 +1,7 @@
 package model;
 
 /**
- * @author chenjianchao
+ * @author ice_shiki
  * @createDate 2022/11/17 11:21
  */
 public class ListNode {

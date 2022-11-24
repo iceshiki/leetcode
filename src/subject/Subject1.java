@@ -24,7 +24,7 @@ import java.util.Map;
  * -109 <= target <= 109
  * 只会存在一个有效答案
  *
- * @author chenjianchao
+ * @author ice_shiki
  * @createDate 2022/11/24 10:32
  */
 public class Subject1 {
