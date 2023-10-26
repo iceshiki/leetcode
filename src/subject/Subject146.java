@@ -9,7 +9,8 @@ import java.util.Map;
  * @author: ice_shiki
  * @createDate: 2022/11/19
  */
-public class Subject146 { int capacity;
+public class Subject146 {
+    int capacity;
     LinkedHashMap<Integer, Integer> cache;
 
     public Subject146(int capacity) {
@@ -80,7 +81,9 @@ class LRUCache {
 
     public int get(int key) {
         Node node = map.get(key);
-        if (node == null) return -1;
+        if (node == null) {
+            return -1;
+        }
 
         node = node.remove();
         head.insert(node);
