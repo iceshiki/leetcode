@@ -1,7 +1,5 @@
 package subject;
 
-import java.awt.print.Printable;
-import java.util.Arrays;
 
 /**
  * 整数数组的一个 排列  就是将其所有成员以序列或线性顺序排列。
