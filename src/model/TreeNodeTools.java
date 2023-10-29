@@ -41,4 +41,13 @@ public class TreeNodeTools {
         }
         return node;
     }
+
+    public static void prePrint(TreeNode head){
+        if (head == null) {
+            return;
+        }
+        System.out.print(head.val+" ");
+        prePrint(head.left);
+        prePrint(head.right);
+    }
 }
