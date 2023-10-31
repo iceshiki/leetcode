@@ -29,13 +29,14 @@ package subject;
 public class Subject4 {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        if (m > n) {
+
+        if (nums1.length > nums2.length) {
             int[] tmp = nums1;
             nums1 = nums2;
             nums2 = tmp;
         }
+        int m = nums1.length;
+        int n = nums2.length;
 
         int medianIdx = m + (n - m + 1) / 2;
         int left = 0;
@@ -68,6 +69,12 @@ public class Subject4 {
             return (double) ((Math.max(nums1LeftMax, nums2LeftMax) + Math.min(nums1RightMin, nums2RightMin))) / 2;
         }
 
+    }
+
+    public static void main(String[] args) {
+        Subject4 subject4 = new Subject4();
+
+        System.out.println(subject4.findMedianSortedArrays(new int[]{1, 3}, new int[]{2}));
     }
 
 }
