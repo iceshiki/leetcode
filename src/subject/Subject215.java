@@ -26,7 +26,49 @@ package subject;
  */
 public class Subject215 {
 
-//    public int findKthLargest(int[] nums, int k) {
-//
-//    }
+    public int findKthLargest(int[] nums, int k) {
+        int heapSize = nums.length;
+        for (int i = heapSize / 2; i >= 0; i--) {
+            maxHeap(nums, i, heapSize);
+        }
+
+
+        for (int i = 0; i < k-1; i++) {
+            swap(nums, heapSize - 1, 0);
+            heapSize--;
+            maxHeap(nums, 0, heapSize);
+        }
+        return nums[0];
+    }
+
+
+    public void maxHeap(int[] nums, int i, int heapSize) {
+        int l = i * 2 + 1;
+        int r = i * 2 + 2;
+        int largest = i;
+
+        if (l < heapSize && nums[l] > nums[largest]) {
+            largest = l;
+        }
+        if (r < heapSize && nums[r] > nums[largest]) {
+            largest = r;
+        }
+        if (largest != i) {
+            swap(nums, i, largest);
+            maxHeap(nums, largest, heapSize);
+        }
+
+    }
+
+    public void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
+    public static void main(String[] args) {
+        Subject215 subject215 = new Subject215();
+        System.out.println(subject215.findKthLargest(new int[]{3, 2, 1, 5, 6, 4}, 3));
+        System.out.println(subject215.findKthLargest(new int[]{3,2,3,1,2,4,5,5,6}, 3));
+    }
 }
