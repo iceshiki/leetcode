@@ -28,4 +28,19 @@ public class ListNode {
         }
         System.out.println();
     }
+
+    /**
+     * 从数组创建list，返回头指针
+     * @param numArr
+     * @return head
+     */
+    public static ListNode makeList(int[] numArr){
+        ListNode head = new ListNode(numArr[0]);
+        ListNode node = head;
+        for (int i = 1; i < numArr.length; i++) {
+            node.next = new ListNode(numArr[i]);
+            node = node.next;
+        }
+        return head;
+    }
 }
