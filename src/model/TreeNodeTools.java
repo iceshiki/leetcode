@@ -22,13 +22,16 @@ public class TreeNodeTools {
 
         while (!queue.isEmpty()) {
             TreeNode poll = queue.poll();
-            if (numArray.length <= index) {
+            if (numArray.length > index) {
+                poll.left = setSubNode(numArray[index], queue);
+                index++;
+            } else {
                 break;
             }
-            poll.left = setSubNode(numArray[index], queue);
-            index++;
-            poll.right = setSubNode(numArray[index], queue);
-            index++;
+            if (numArray.length > index) {
+                poll.right = setSubNode(numArray[index], queue);
+                index++;
+            }
         }
         return root;
     }
@@ -42,11 +45,11 @@ public class TreeNodeTools {
         return node;
     }
 
-    public static void prePrint(TreeNode head){
+    public static void prePrint(TreeNode head) {
         if (head == null) {
             return;
         }
-        System.out.print(head.val+" ");
+        System.out.print(head.val + " ");
         prePrint(head.left);
         prePrint(head.right);
     }
