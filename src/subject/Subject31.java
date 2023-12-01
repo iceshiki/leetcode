@@ -29,6 +29,8 @@ package subject;
  * 提示：
  * 1 <= nums.length <= 100
  * 0 <= nums[i] <= 100
+ *
+ * @level medium
  */
 public class Subject31 {
     public static void nextPermutation(int[] nums) {
